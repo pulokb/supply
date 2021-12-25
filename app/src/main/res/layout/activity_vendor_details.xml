@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".VendorDetails">
+
+    <ImageView
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:id="@+id/back"/>
+
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/tv_vendor_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:text="Vendor Details"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp" />
+
+    <androidx.core.widget.NestedScrollView
+        android:fillViewport="true"
+        android:scrollbars="none"
+        android:layout_below="@+id/tv_vendor_details"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/scroll_view">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                >
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/vendorDP"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/profile_image_icon" />
+
+                <TextView
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/tv_vendor_name"
+                    android:layout_below="@+id/vendorDP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="Vendor Name"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+
+
+                <ImageView
+                    android:layout_marginStart="15dp"
+                    android:id="@+id/ic_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_email"
+                    android:layout_below="@+id/tv_vendor_name"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:textIsSelectable="true"
+                    android:layout_toEndOf="@+id/ic_email"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/tv_vendor_email"
+                    android:layout_below="@+id/tv_vendor_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Vendor Email"
+                    android:textColor="#555"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_marginStart="15dp"
+                    android:id="@+id/ic_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_phone"
+                    android:layout_below="@+id/tv_vendor_email"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:textIsSelectable="true"
+                    android:layout_toEndOf="@+id/ic_email"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/tv_vendor_phone"
+                    android:layout_below="@+id/tv_vendor_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Vendor Phone"
+                    android:textColor="#555"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_marginStart="15dp"
+                    android:id="@+id/ic_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_location"
+                    android:layout_below="@+id/tv_vendor_phone"
+                    android:layout_marginTop="10dp"/>
+                <TextView
+                    android:textIsSelectable="false"
+                    android:layout_toEndOf="@+id/ic_email"
+                    android:layout_marginLeft="10dp"
+                    android:id="@+id/tv_vendor_location"
+                    android:layout_below="@+id/tv_vendor_phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="Vendor Location"
+                    android:textColor="#555"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_marginStart="15dp"
+                    android:id="@+id/tv_avp"
+                    android:layout_below="@+id/tv_vendor_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:text="Available Product"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/available_pro_rv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/tv_avp"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="15dp" />
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+</RelativeLayout>

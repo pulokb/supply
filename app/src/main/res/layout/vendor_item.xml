@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+
+        android:layout_marginLeft="95dp"
+        android:id="@+id/delete_top_vendor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:src="@drawable/ic_decline" />
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity="center"
+                android:id="@+id/vendor_profile_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="2dp"
+                android:src="@drawable/profile_image_icon" />
+
+            <TextView
+                android:id="@+id/vendor_name"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textSize="11sp"
+                android:textColor="@color/colorBlack"
+                android:text="Name"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>

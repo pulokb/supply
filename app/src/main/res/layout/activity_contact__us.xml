@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Background"
+    tools:context=".Contact_US">
+
+    <ImageView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:src="@drawable/ic_back" />
+
+    <TextView
+        android:id="@+id/tv_my_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:text="Contact Us"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_my_account">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_below="@+id/my_wallet"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/profile_image_icon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25dp"
+            android:id="@+id/UserImage"/>
+
+        <TextView
+            android:layout_centerHorizontal="true"
+            android:id="@+id/Name"
+            android:layout_below="@+id/UserImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="User Name"
+            android:textStyle="bold"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp" />
+
+
+        <ImageView
+            android:layout_marginStart="15dp"
+            android:id="@+id/ic_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_email"
+            android:layout_below="@+id/Name"
+            android:layout_marginTop="20dp"/>
+        <TextView
+            android:textIsSelectable="true"
+            android:layout_toEndOf="@+id/ic_email"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/EmailAddress"
+            android:layout_below="@+id/Name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="User Email"
+            android:textColor="#555"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:layout_marginStart="15dp"
+            android:id="@+id/ic_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_phone"
+            android:layout_below="@+id/EmailAddress"
+            android:layout_marginTop="15dp"/>
+
+        <TextView
+            android:textIsSelectable="true"
+            android:layout_toEndOf="@+id/ic_email"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/NumberFill"
+            android:layout_below="@+id/EmailAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="User Phone"
+            android:textColor="#555"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:layout_marginStart="15dp"
+            android:id="@+id/ic_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_location"
+            android:layout_below="@+id/NumberFill"
+            android:layout_marginTop="15dp"/>
+        <TextView
+            android:textIsSelectable="false"
+            android:layout_toEndOf="@+id/ic_email"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/addressText"
+            android:layout_below="@+id/NumberFill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="User Location"
+            android:textColor="#555"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addressText"
+            android:layout_alignRight="@id/aditText"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/ic_edit"
+            tools:visibility="gone" />
+
+        <TextView
+            android:id="@+id/aditText"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@id/addressText"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
+            android:text="Details "
+            android:textColor="#575656"
+            android:textIsSelectable="false"
+            android:textSize="15sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/chat"
+            android:layout_width="326dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="43dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="42dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/colorPrimary"
+            android:text="Start Messaging"
+            android:textAllCaps="false"
+            android:textColor="@color/colorWhite"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

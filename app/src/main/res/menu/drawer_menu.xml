@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+
+        <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_person"
+            android:title="My Account" />
+        <item
+            android:id="@+id/nav_login"
+            android:icon="@drawable/ic_login"
+            android:title="Login" />
+
+    <item
+        android:id="@+id/nav_cart_list"
+        android:icon="@drawable/ic_cart"
+        android:title="My Cart" />
+        <item
+            android:id="@+id/nav_wish_list"
+            android:icon="@drawable/ic_wish"
+            android:title="Wishlist" />
+
+    <item
+        android:id="@+id/nav_my_wallet"
+        android:icon="@drawable/wallet"
+        android:title="My Wallet" />
+        <item
+            android:id="@+id/nav_contact_us"
+            android:icon="@drawable/icon_contact_us"
+            android:title="Contact Us" />
+
+        <item
+            android:id="@+id/nav_privacy"
+            android:icon="@drawable/ic_privacy"
+            android:title="Privacy Policy" />
+    <item
+        android:id="@+id/nav_refund"
+        android:icon="@drawable/ic_baseline_repeat_24"
+        android:title="Refund Policy" />
+
+    <item
+        android:id="@+id/nav_check_update"
+        android:icon="@drawable/ic_check_update"
+        android:title="Check Update" />
+        <item
+            android:id="@+id/nav_signout"
+            android:icon="@drawable/ic_sign_out"
+            android:title="Signout" />
+
+
+
+
+</menu>

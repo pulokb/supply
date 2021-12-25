@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "88632859695",
+    "firebase_url": "https://project-ecommerce-pulok-default-rtdb.firebaseio.com",
+    "project_id": "project-ecommerce-pulok",
+    "storage_bucket": "project-ecommerce-pulok.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:88632859695:android:42030faa18b904f086fada",
+        "android_client_info": {
+          "package_name": "com.samulitfirstproject.supply365"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "88632859695-h8evnbifgtrub7l4dejne9d450kg95j5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.samulitfirstproject.supply365",
+            "certificate_hash": "eee4f9ddbe92dd85f5d17087729f593a1a1d5670"
+          }
+        },
+        {
+          "client_id": "88632859695-411fej6v6uqrclg1e22k71n256lkkad2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsiIx69dSLGpefzRVbSrX005hS6Zc8KHA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "88632859695-411fej6v6uqrclg1e22k71n256lkkad2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

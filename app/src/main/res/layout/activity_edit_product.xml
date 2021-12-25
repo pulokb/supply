@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="15dp"
+    tools:context=".EditProduct">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+
+                <ImageView
+                    android:layout_centerHorizontal="true"
+                    android:id="@+id/show_product_imageE"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:src="@drawable/add_product" />
+
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/tv_category"
+                    android:layout_gravity="left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:text="Category :"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="15.5sp" />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:id="@+id/tv_category2"
+                android:layout_gravity="left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="Sub Category :"
+                android:textAlignment="center"
+                android:textColor="@color/colorBlack"
+                android:textSize="15.5sp" />
+
+
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/linearLayout"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:padding="5dp">
+
+                    <TextView
+                        android:textSize="16sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Product Name: "
+                        android:textColor="@color/colorBlack"/>
+
+
+                <EditText
+                    android:id="@+id/et_product_nameE"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/Transparent"
+                    android:gravity="start|top"
+
+                    android:inputType="text"
+                    android:lines="1"
+                    android:padding="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="italic" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="101dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:padding="5dp">
+
+                <TextView
+                    android:textSize="16sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_gravity="top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product Description: "
+                    android:textColor="@color/colorBlack"/>
+
+                <EditText
+                    android:id="@+id/et_product_desE"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:background="@color/Transparent"
+                    android:gravity="start|top"
+                    android:inputType="textLongMessage|textMultiLine|text"
+                    android:lines="3"
+                    android:padding="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="italic" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/linearLayout2"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:padding="5dp">
+
+                <TextView
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product Price: "
+                    android:textColor="@color/colorBlack"/>
+
+                <EditText
+                    android:id="@+id/et_product_priceE"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/Transparent"
+                    android:gravity="start|top"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:padding="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="italic" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:padding="5dp">
+
+                <TextView
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Whole Sales Price: "
+                    android:textColor="@color/colorBlack"/>
+
+                <EditText
+                    android:id="@+id/et_whole_sales_priceE"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/Transparent"
+                    android:gravity="start|top"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:padding="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="italic" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/linearLayout6"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:padding="5dp">
+
+                <TextView
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product Discount: "
+                    android:textColor="@color/colorBlack"/>
+
+                <EditText
+                    android:id="@+id/et_product_disE"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/Transparent"
+                    android:gravity="start|top"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:padding="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/linearLayoutDiscount"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:padding="5dp">
+
+                <TextView
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product Discount For Vendor: "
+                    android:textColor="@color/colorBlack"/>
+
+                <EditText
+                    android:id="@+id/et_product_dis_vendor"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/Transparent"
+                    android:gravity="start|top"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:padding="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/linearLayout7"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:padding="5dp">
+
+                <TextView
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product Cash Back: "
+                    android:textColor="@color/colorBlack"/>
+
+
+                <EditText
+                    android:id="@+id/et_product_cashBackE"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/Transparent"
+                    android:gravity="start|top"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:padding="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="italic" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/linearLayoutCashBack"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:padding="5dp">
+
+                <TextView
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product Cash Back For Vendor: "
+                    android:textColor="@color/colorBlack"/>
+
+                <EditText
+                    android:id="@+id/et_product_cashBack_vendor"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/Transparent"
+                    android:gravity="start|top"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:padding="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="15dp"
+                android:id="@+id/linearLayoutWeight"
+                android:layout_width="match_parent"
+                android:layout_height="51dp"
+                android:background="@drawable/border"
+                android:gravity="center"
+                android:padding="5dp">
+
+                <TextView
+                    android:textSize="16sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Product Weight gm: "
+                    android:textColor="@color/colorBlack"/>
+
+                <EditText
+                    android:id="@+id/et_product_weight"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/Transparent"
+                    android:gravity="start|top"
+                    android:inputType="number"
+                    android:lines="1"
+                    android:padding="15dp"
+                    android:textColor="@color/colorBlack"
+                    android:textColorHint="@color/colorBlack"
+                    android:textSize="16sp"
+                    android:textStyle="italic" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="5dp"
+                android:text="Product Available"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp" />
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp">
+
+                <RadioButton
+                    android:id="@+id/stock_in"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Yes"
+                    android:textColor="@color/colorBlack" />
+
+                <RadioButton
+                    android:id="@+id/stock_out"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="No"
+                    android:textColor="@color/colorBlack" />
+
+
+            </RadioGroup>
+
+            <androidx.cardview.widget.CardView
+                android:layout_marginTop="30dp"
+                android:id="@+id/cv_btn_update_product"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:backgroundTint="@color/colorPrimary"
+                app:cardCornerRadius="6dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Update Product"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp" />
+
+            </androidx.cardview.widget.CardView>
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

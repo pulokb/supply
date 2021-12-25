@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="20sp"
+        android:textColor="@color/dim_foreground_material_light"
+        android:text="Rate &amp; Review"
+        android:id="@+id/rateHeader"
+        android:gravity="center"
+        android:layout_centerHorizontal="true" />
+    <View
+        android:layout_marginEnd="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_width="match_parent"
+        android:background="@color/text_style"
+        android:layout_height="1dp"
+        android:id="@+id/separator"
+        android:layout_below="@+id/rateHeader"
+        android:layout_marginTop="5dp" />
+    <RatingBar
+        android:stepSize=".5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ratingsBar"
+        android:clickable="false"
+        android:rating="5"
+        android:numStars="5"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/separator" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5.0"
+        android:id="@+id/rateTV"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:textSize="20sp"
+        android:layout_below="@+id/ratingsBar"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/errorTV"
+        android:text="Something Went Wrong. Please Try Again"
+        android:layout_below="@+id/rateTV"
+        android:textColor="@color/colorWhite"
+        android:visibility="gone"
+        android:layout_centerHorizontal="true"
+        android:background="@color/colorRed"/>
+
+    <EditText
+        android:padding="5dp"
+        android:gravity="top"
+        android:layout_below="@+id/errorTV"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:hint="Write Your Review..."
+        android:lines="3"
+        android:id="@+id/reviewED"/>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/reviewED"
+        android:layout_gravity="center"
+        android:weightSum="2">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Cancel"
+            android:background="@color/text_style"
+            android:id="@+id/cancelRateBtn"
+            android:textColor="@color/colorWhite"
+            android:layout_weight="1"
+            android:layout_alignParentRight="true"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Submit"
+            android:textColor="@color/colorWhite"
+            android:background="@color/colorPrimary"
+            android:layout_weight="1"
+            android:id="@+id/submitRateBtn"
+            />
+
+    </LinearLayout>
+
+
+</RelativeLayout>

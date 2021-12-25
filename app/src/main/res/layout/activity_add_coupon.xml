@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".AddCoupon">
+
+    <ImageView
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        android:id="@+id/back"/>
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:textStyle="bold"
+        android:id="@+id/tv_coupon"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Add Coupon"
+        android:textSize="18sp"
+        android:textColor="@color/colorBlack"/>
+
+   <LinearLayout
+       android:gravity="center"
+       android:layout_margin="25dp"
+       android:layout_below="@+id/tv_coupon"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="vertical">
+
+       <EditText
+           android:id="@+id/et_coupon"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="Enter Code"
+           android:textColorHint="@color/colorBlack"
+           android:textColor="@color/colorBlack"/>
+
+       <EditText
+           android:layout_marginTop="10dp"
+           android:id="@+id/et_value"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:hint="Enter Cash Back Percentage"
+           android:textColorHint="@color/colorBlack"
+           android:textColor="@color/colorBlack"/>
+
+
+       <Button
+           android:layout_marginTop="15dp"
+           android:id="@+id/btn_coupon"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:textColor="@color/colorWhite"
+           android:backgroundTint="@color/colorPrimary"
+           android:text="   Add Coupon   "/>
+
+
+
+
+   </LinearLayout>
+
+</RelativeLayout>

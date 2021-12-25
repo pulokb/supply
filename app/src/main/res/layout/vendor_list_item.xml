@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        android:layout_margin="5dp"
+        app:cardElevation="3dp">
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|left"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_gravity="center"
+                android:id="@+id/vendor_profile_image"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                app:civ_border_color="@color/colorPrimary"
+                app:civ_border_width="1dp"
+                android:src="@drawable/profile_image_icon" />
+
+            <LinearLayout
+                android:layout_marginStart="20dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/vendor_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:text="Name"/>
+
+                <TextView
+                    android:id="@+id/type"
+                    android:layout_marginTop="0dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:textColor="#555"
+                    android:text="Type"/>
+
+
+                <TextView
+                    android:id="@+id/vendor_phone"
+                    android:layout_marginTop="2dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:textColor="#555555"
+                    android:text="Phone"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_gravity="right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:background="@drawable/button"
+                android:text="Add As Top"
+                android:textAllCaps="false"
+                android:textSize="12dp"
+                android:textColor="@color/colorWhite"
+                android:id="@+id/add_as_top_vendor"/>
+
+            <Button
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:background="@drawable/button"
+                android:text="  Add Brand Shop  "
+                android:textAllCaps="false"
+                android:textSize="12dp"
+                android:textColor="@color/colorWhite"
+                android:id="@+id/add_as_brand_shop"/>
+
+            <Button
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:background="@drawable/button"
+                android:text="  Remove Brand Shop  "
+                android:textAllCaps="false"
+                android:textSize="12dp"
+                android:textColor="@color/colorWhite"
+                android:id="@+id/remove_brand_shop"/>
+
+            <Button
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:background="@drawable/button"
+                android:text="Approve"
+                android:textAllCaps="false"
+                android:textSize="12dp"
+                android:textColor="@color/colorWhite"
+                android:id="@+id/approve_account"/>
+
+            <Button
+                android:layout_margin="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="25dp"
+                android:background="@drawable/button"
+                android:text="  Give Panel Access  "
+                android:textAllCaps="false"
+                android:textSize="12dp"
+                android:textColor="@color/colorWhite"
+                android:id="@+id/panel_access"/>
+
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+</RelativeLayout>
