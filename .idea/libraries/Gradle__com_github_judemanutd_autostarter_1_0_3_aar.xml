@@ -1,9 +1,9 @@
 <component name="libraryTable">
   <library name="Gradle: com.github.judemanutd:autostarter:1.0.3@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c1ca5857daeb9d4fefc63ec41120c69d/jetified-autostarter-1.0.3/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c1ca5857daeb9d4fefc63ec41120c69d/jetified-autostarter-1.0.3/res" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c1ca5857daeb9d4fefc63ec41120c69d/jetified-autostarter-1.0.3/AndroidManifest.xml" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/534cd786a8a0fff7eb8c95fe15687b35/jetified-autostarter-1.0.3/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/534cd786a8a0fff7eb8c95fe15687b35/jetified-autostarter-1.0.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/534cd786a8a0fff7eb8c95fe15687b35/jetified-autostarter-1.0.3/AndroidManifest.xml" />
     </CLASSES>
     <JAVADOC>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.judemanutd/autostarter/1.0.3/7a7ed66781f1cfdf0d4fab2c19b7c04670c32bcd/autostarter-1.0.3-javadoc.jar!/" />
