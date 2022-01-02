@@ -158,10 +158,8 @@ public class LoginActivity extends AppCompatActivity {
                             progressDialog.dismiss();
                             Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
                         } else {
-
-                            checkIfEmailVerified();
+                            //checkIfEmailVerified();
                             successful_login();
-
                         }
 
                     });
@@ -172,7 +170,7 @@ public class LoginActivity extends AppCompatActivity {
 
             }
 
-            private void checkIfEmailVerified() {
+            /*private void checkIfEmailVerified() {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
                 if (user.isEmailVerified()) {
@@ -227,7 +225,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     }
                 });
-            }
+            }*/
 
             private void successful_login() {
                 progressDialog.dismiss();

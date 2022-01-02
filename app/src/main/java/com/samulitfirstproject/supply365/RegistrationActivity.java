@@ -12,6 +12,7 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.method.PasswordTransformationMethod;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
 import android.view.Window;
@@ -20,14 +21,23 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthOptions;
+import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +48,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 public class RegistrationActivity extends AppCompatActivity {
 
@@ -47,12 +58,17 @@ public class RegistrationActivity extends AppCompatActivity {
     private Button signUp;
     private ImageView vPass;
     private RadioButton Customer, Vendor, Distributor;
+    private RelativeLayout relativeLayout;
+    private ScrollView scrollView;
     private ProgressDialog loadingBar;
     private boolean isShowPassword = false;
     private DatabaseReference userRef,rRef;
-    private String userType,user_id;
+    private String userType, user_id, sendCode, email, password, PhoneNumber;
     private String balance = "0";
     private int count = 0;
+
+    private EditText text;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +94,17 @@ public class RegistrationActivity extends AppCompatActivity {
         Vendor = findViewById(R.id.radioButton2);
         Distributor = findViewById(R.id.radioButton3);
 
+        text = findViewById(R.id.text);
+        button = findViewById(R.id.button2);
+
+        scrollView = findViewById(R.id.scroll);
+        relativeLayout = findViewById(R.id.rl2);
+
         loadingBar = new ProgressDialog(RegistrationActivity.this);
+
+        button.setOnClickListener(v -> {
+            verifyVerificationCode(text.getText().toString().trim());
+        });
 
         Login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,7 +130,6 @@ public class RegistrationActivity extends AppCompatActivity {
             }
         });
 
-
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -129,7 +154,6 @@ public class RegistrationActivity extends AppCompatActivity {
                     return false;
                 }
             }
-
 
         });
     }
@@ -205,6 +229,10 @@ public class RegistrationActivity extends AppCompatActivity {
             loadingBar.show();
             // End
 
+            email = userEmail.getText().toString().trim();
+            password = userPass.getText().toString().trim();
+
+
 
             // Create Account
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
@@ -214,19 +242,98 @@ public class RegistrationActivity extends AppCompatActivity {
                         loadingBar.dismiss();
                         Toast.makeText(RegistrationActivity.this, "Registration Failed", Toast.LENGTH_SHORT).show();
                     } else {
-                        sendVerificationEmail();
-                        sendUserData();
-
+                        user_id = mAuth.getCurrentUser().getUid();
+                        loadingBar.dismiss();
+                        relativeLayout.setVisibility(View.VISIBLE);
+                        scrollView.setVisibility(View.GONE);
+                        PhoneNumber = "+88" + userNumber.getText().toString();
+                        sendPhoneVerificationCode(PhoneNumber);
                     }
                 }
             });
 
         }
         // End
-
     }
 
-    private void sendVerificationEmail() {
+    private void sendPhoneVerificationCode(String phone) {
+        PhoneAuthOptions options =
+                PhoneAuthOptions.newBuilder(mAuth)
+                        .setPhoneNumber(phone)
+                        .setTimeout(60L, TimeUnit.SECONDS)
+                        .setActivity(this)
+                        .setCallbacks(mCallBack)
+                        .build();
+        PhoneAuthProvider.verifyPhoneNumber(options);
+    }
+
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallBack = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+        @Override
+        public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+            super.onCodeSent(s, forceResendingToken);
+            sendCode = s;
+        }
+
+        @Override
+        public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
+            String Code = phoneAuthCredential.getSmsCode();
+            Log.i("Code SMS Code", Code);
+            Toast.makeText(RegistrationActivity.this, Code, Toast.LENGTH_SHORT).show();
+
+            if (Code != null) {
+                text.setText(Code);
+                verifyVerificationCode(Code);
+            }
+        }
+
+        @Override
+        public void onVerificationFailed(@NonNull FirebaseException e) {
+            Toast.makeText(RegistrationActivity.this, "Check your internet!", Toast.LENGTH_SHORT).show();
+        }
+    };
+
+    private void verifyVerificationCode(String code) {
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(sendCode, code);
+        signInWithPhoneAuthCredential(credential);
+    }
+
+    private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
+        mAuth.signInWithCredential(credential)
+                .addOnCompleteListener(RegistrationActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            sendUserData();
+
+                        } else {
+                            final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                            AuthCredential credential = EmailAuthProvider.getCredential(email, password);
+                            user.reauthenticate(credential).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(RegistrationActivity.this, "Your entered code are wrong!", Toast.LENGTH_SHORT).show();
+                                                relativeLayout.setVisibility(View.GONE);
+                                                scrollView.setVisibility(View.VISIBLE);
+                                            }
+                                        }
+                                    });
+
+                                }
+                            });
+                            FirebaseAuth.getInstance().signOut();
+                        }
+                    }
+                });
+    }
+
+
+    /*private void sendVerificationEmail() {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         user.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -262,9 +369,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
                     dialog.show();
 
-
-
-
                 } else {
 
                     overridePendingTransition(0, 0);
@@ -275,24 +379,21 @@ public class RegistrationActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+    }*/
 
     private void sendUserData() {
-
-        user_id = mAuth.getCurrentUser().getUid();
         userRef = FirebaseDatabase.getInstance().getReference().child("UsersData");
         rRef = FirebaseDatabase.getInstance().getReference().child("ReferCode");
 
         final String name = userName.getText().toString();
-        final String email = userEmail.getText().toString();
+        email = userEmail.getText().toString();
+        password = userPass.getText().toString();
         final String phone = userNumber.getText().toString();
         final String refer = refer_code.getText().toString();
-
 
             rRef.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-
 
                     if (userType.equals("Customer")) {
                         balance = String.valueOf(snapshot.child("customerValue").getValue());
@@ -302,7 +403,6 @@ public class RegistrationActivity extends AppCompatActivity {
                         balance = String.valueOf(snapshot.child("vendorValue").getValue());
                     }
 
-
                     if (!refer.isEmpty()) {
 
                         if (snapshot.child("user").child(refer).exists()) {
@@ -311,7 +411,6 @@ public class RegistrationActivity extends AppCompatActivity {
                                 @Override
                                 public void run() {
 
-                                    //balance = String.valueOf(snapshot.child("value").getValue());
                                     final String uid = String.valueOf(snapshot.child("user").child(refer).child("value").getValue());
 
                                     userRef.child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
@@ -319,18 +418,13 @@ public class RegistrationActivity extends AppCompatActivity {
                                         public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                                             if (snapshot.exists()){
-
                                                 String value = String.valueOf(snapshot.child("userTotalBalance").getValue());
                                                 String type = String.valueOf(snapshot.child("userType").getValue());
 
                                                 if (type.equals(userType) && count==0){
-
                                                     count++;
                                                     double temp = Double.parseDouble(value);
                                                     double temp2 = Double.parseDouble(balance);
-                                                    // double temp3 = (Double.parseDouble(balance));
-
-                                                    //balance = ""+temp3*2;
 
                                                     Map bal = new HashMap();
 
@@ -343,8 +437,6 @@ public class RegistrationActivity extends AppCompatActivity {
                                                 }else {
                                                     SaveUserInfo(name,email,phone);
                                                 }
-
-
                                             }
                                         }
 
@@ -353,19 +445,13 @@ public class RegistrationActivity extends AppCompatActivity {
 
                                         }
                                     });
-
                                 }
-                            }, 1000);
-
-
+                            }, 300);
                         }
-
-
                     }
                     else {
                         SaveUserInfo(name,email,phone);
                     }
-
                 }
 
                 @Override
@@ -373,8 +459,6 @@ public class RegistrationActivity extends AppCompatActivity {
 
                 }
             });
-
-
     }
 
     private void SaveUserInfo(String name, String email, String phone) {
@@ -388,7 +472,7 @@ public class RegistrationActivity extends AppCompatActivity {
         SimpleDateFormat currentTime = new SimpleDateFormat("hh:mm a");
         saveCurrentTime = currentTime.format(calFordDate.getTime());
 
-        Map reg = new HashMap();
+        HashMap reg = new HashMap();
 
         reg.put("userName", name);
         reg.put("userEmail", email);
@@ -410,12 +494,11 @@ public class RegistrationActivity extends AppCompatActivity {
         userRef.child(user_id).updateChildren(reg);
         rRef.child("user").child(user_id.substring(7,14)).child("value").setValue(user_id);
 
-        loadingBar.dismiss();
         Toast.makeText(RegistrationActivity.this, "Registration Successful", Toast.LENGTH_SHORT).show();
         FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
+        Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
+        startActivity(intent);
         finish();
-
     }
 
 }
